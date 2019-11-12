@@ -1,0 +1,1 @@
+# Attempt at creating another react/redux boilerplate with SSR
