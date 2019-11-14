@@ -9,6 +9,7 @@ const miniCssExtractPlugin = new MiniCssExtractPlugin({
   filename: "[name].css",
   chunkFilename: "[id].css"
 });
+const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
 module.exports = {
   entry: ["@babel/polyfill", "normalize.css", "./assets/js/main.js"],
@@ -72,7 +73,8 @@ module.exports = {
       React: "react",
       Component: ["react", "Component"]
     }),
-    miniCssExtractPlugin
+    miniCssExtractPlugin,
+    new CleanWebpackPlugin()
   ],
   resolve: {
     extensions: [".js", ".jsx", ".scss", ".css"]
