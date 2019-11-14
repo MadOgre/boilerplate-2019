@@ -1,10 +1,4 @@
-class Test {
-  x = 34;
-  getX = () => {
-    return this.x;
-  }
-}
+import App from "../../app";
+import { render } from "react-dom";
 
-let x = new Test;
-
-console.log(x.getX());
+render(React.createElement(App), document.getElementById("root"));

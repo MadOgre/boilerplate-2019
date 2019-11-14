@@ -1,3 +1,4 @@
+const webpack = require("webpack");
 const { resolve } = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const htmlWebpackPlugin = new HtmlWebpackPlugin({
@@ -25,6 +26,13 @@ module.exports = {
     }]
   },
   plugins: [
-    htmlWebpackPlugin
-  ]
+    htmlWebpackPlugin,
+    new webpack.ProvidePlugin({
+      React: "react",
+      Component: ["react", "Component"]
+    })
+  ],
+  resolve: {
+    extensions: [".js", ".jsx"]
+  }
 };
