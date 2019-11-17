@@ -12,15 +12,16 @@ const miniCssExtractPlugin = new MiniCssExtractPlugin({
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 
 module.exports = {
-  entry: ["@babel/polyfill", "normalize.css", "./assets/js/main.js"],
+  entry: ["@babel/polyfill", "./assets/js/main.js"],
   mode: "production",
   output: {
     path: resolve(__dirname, "public"),
-    filename: "bundle.js"
+    filename: "[name].js"
   },
   module: {
     rules: [{
       test: /\.jsx?$/,
+      exclude: /node_modules/,
       use: [{
         loader: "babel-loader",
         options: {
@@ -78,6 +79,15 @@ module.exports = {
   ],
   resolve: {
     extensions: [".js", ".jsx", ".scss", ".css"]
+  },
+  optimization: {
+    splitChunks: {
+      chunks: "all"
+    }
+  },
+  performance: {
+    maxAssetSize: 500000,
+    maxEntrypointSize: 500000
   },
   devtool: "source-map"
 };

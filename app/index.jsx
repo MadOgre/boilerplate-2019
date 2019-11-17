@@ -1,5 +1,11 @@
+import Header from "./components/Header.jsx";
 import styles from "./index.module.scss";
 
 export default class App extends Component {
-  render = () => <h1 className={styles.mainBorder}>test passed</h1>;
+  render = () => (
+    <div className={styles.mainBorder}>
+      <Header />
+      test passed
+    </div>
+  );
 }
